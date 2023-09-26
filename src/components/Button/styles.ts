@@ -12,10 +12,11 @@ border-radius: 15px;
 margin: 3px;
 width: -webkit-fill-available;
 height: auto;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 &:hover {
     opacity: 0.6;
-    background-color: #253d65;
+    background-color: #005b99;
     transform: scale(0.96);
 }
 `
