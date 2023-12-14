@@ -129,7 +129,6 @@ function App() {
   const handleMultiplyNumbers = () => {
     const piNumber = calcPi()
     setPiValue(String(piNumber));
-    // if(operation === 'x' && currentNumber !== '0' &&  piValue !== '0')
     if (firstNumber === '0') {
       setFirstNumber(currentNumber)
       setCurrentNumber('0')
@@ -140,81 +139,50 @@ function App() {
         setOperation('x')
         handleEquation()
 
-        // handleEquation()
-        console.log('Opa olha eu aqui')
         console.log(piValue)
         console.log(currentNumber)
         console.log(firstNumber)
       }
     }
     else if (currentNumber !== '0' && piValue && operation === 'x') {
-      // handleAddNumber(piValue)
       setCurrentNumber(piValue)
       const multiplyPiCurrent = String(Number(currentNumber) * Number(firstNumber))
       setCurrentNumber(multiplyPiCurrent)
       setFirstNumber('0')
       setOperation('x')
-      // setCurrentNumber(currentNumber)
       setShowOperation(`${firstNumber} x ${currentNumber}`);
-      console.log('Fui executado')
     }
     else if (currentNumber === piValue && operation === 'x') {
-      // setFirstNumber(piValue)
-      // setCurrentNumber(currentNumber)
+
       const multiplyPiCurrent = String(Number(firstNumber) * Number(currentNumber))
       setCurrentNumber(multiplyPiCurrent)
       setFirstNumber('0')
       setOperation('')
       setShowOperation(`${piValue}π x ${currentNumber}`);
       setOperation('=')
-      // handleEquation();
-      console.log('sou eu aqui agora')
-      console.log(firstNumber)
-      console.log(currentNumber)
-      console.log(multiplyPiCurrent)
     }
 
     else if (firstNumber === piValue && operation === 'x') {
-      // setFirstNumber(piValue)
-      // setCurrentNumber(currentNumber)
       const multiplyPiFirst = String(Number(firstNumber) * Number(currentNumber))
       setCurrentNumber(multiplyPiFirst)
       setFirstNumber('0')
       setOperation('')
       setShowOperation(`${piValue}π x ${currentNumber}`);
       setOperation('=')
-      // handleEquation();
-      console.log('cai aqui')
-      console.log(firstNumber)
-      console.log(currentNumber)
-      console.log(multiplyPiFirst)
     }
     else if (piMultiplier !== 1 && firstNumber !== piValue && operation === 'x') {
-      // setFirstNumber(String(piMultiplier))
       const multiplyPiCurrent = String(Number(firstNumber) * Number(currentNumber))
       setCurrentNumber(multiplyPiCurrent)
       setPiMultiplier(1)
-      // setFirstNumber(String('0'))
       setFirstNumber('0')
       setOperation('')
       setShowOperation(`${firstNumber} x ${currentNumber}`);
-      console.log('Minha vez de executar')
-      console.log(firstNumber)
-      console.log(currentNumber)
-      console.log(multiplyPiCurrent)
       setOperation('=')
-      // setFirstNumber(currentNumber)
-      // handleEquation();
     }
     else if (operation === 'x' && firstNumber !== '0' && currentNumber !== '0') {
       const multiply = Number(firstNumber) * Number(currentNumber)
       setCurrentNumber(String(multiply))
       setFirstNumber('0')
-      console.log('Agora sou eu')
-      console.log(firstNumber)
-      console.log(currentNumber)
-      console.log(multiply)
-      // setFirstNumber(currentNumber)
       setOperation('=')
       setShowOperation(`${firstNumber} ${operation} ${currentNumber}`)
     }
@@ -240,10 +208,6 @@ function App() {
       setShowOperation(`${firstNumber} ÷ ${currentNumber}`);
       const division = String(Number(currentNumber) / Number(piValue))
       setCurrentNumber(String(division))
-
-      console.log('olha eu aqui')
-      console.log(firstNumber)
-      console.log(currentNumber)
     }
     if (operation === '/' && firstNumber !== '0' && currentNumber !== '0') {
       const division = Number(firstNumber) / Number(currentNumber)
@@ -288,7 +252,6 @@ function App() {
       setCurrentNumber(String(result));
       setOperation(`^${base}`);
       setShowOperation(`${base}^${exponent}`);
-      console.log("Elevado a pi clicado")
     }
     else if (operation === 'x^' && firstNumber !== '0' && currentNumber !== '0') {
       const base = Number(firstNumber);
@@ -300,7 +263,6 @@ function App() {
       setShowOperation(`${base}^${exponent}`);
     }
   };
-
 
   const handleFraction = () => {
     setPiValue(piValue);
@@ -330,7 +292,6 @@ function App() {
     }
   }
 
-
   const handleRootSquare = () => {
     setPiValue(piValue);
     setOperation('²√')
@@ -343,14 +304,11 @@ function App() {
     }
   };
 
-
-
   const isOperatorOrEmpty = (expression: string) => {
     // Função para calcular o valor de π
 
     if (expression === 'π') {
       const piNumber = calcPi()
-      // handleAddNumber(String(piNumber))
       setCurrentNumber(String(piNumber))
       handleEquation()
     }
@@ -363,8 +321,6 @@ function App() {
       const piNumber = calcPi();
       setPiValue(String(piNumber));
       setPiMultiplier(piNumber);
-      // handleAddNumber(String(piNumber))
-      // setFirstNumber(String(piNumber))
       setCurrentNumber(String(piNumber));
       setOperation('π');
       setShowOperation(`${piNumber}π`);
@@ -377,58 +333,36 @@ function App() {
 
     if (findOperator) {
       const piNumber = calcPi()
-      // handleAddNumber(String(piNumber))
+
       setCurrentNumber(String(piNumber))
       handleEquation()
-      console.log('passei por aqui')
 
       if (whatOperator && lastChar === 'π') {
         const piNumber = calcPi()
-        // handleAddNumber(String(piNumber))
         setOperation(lastChar)
         setCurrentNumber(String(piNumber))
-        console.log('Estou aqui')
-        // console.log(firstNumber)
-        // console.log(currentNumber)
-        // console.log(whatOperator)
-        // if (piValue) {
-
         handleAddNumber(String(piNumber))
-        // setCurrentNumber(firstNumber)
         setCurrentNumber(String(piNumber))
-        // setOperation(lastChar)
         handleEquation()
-        // setCurrentNumber('0')
+
         setShowOperation(`${firstNumber} ${whatOperator} ${piValue}`)
-        console.log(lastChar)
-        console.log('agora estou aqui')
-        //}
+
       }
       else {
         handleEquation()
       }
-      // console.log(whatOperator)
-      // console.log(piValue)
-      // console.log(showOperator)
-      // console.log(findOperator)
-      // console.log(operators)
     }
     else {
       const piNumber = calcPi();
       handleAddNumber(String(piNumber))
       setPiValue(String(piNumber))
       setCurrentNumber(String(piNumber))
-      // setOperation(expression)
       const newPiMultiplier = Number(piMultiplier) * Number(piNumber);
       setFirstNumber('0')
       setPiMultiplier(newPiMultiplier);
       setCurrentNumber(String(newPiMultiplier));
       setShowOperation(`${newPiMultiplier}π`);
       setOperation('=')
-      console.log("Quem executa sou eu")
-      console.log(firstNumber)
-      console.log(currentNumber)
-      console.log(piMultiplier)
     }
     if (expression === '') {
       return true;
@@ -445,9 +379,8 @@ function App() {
       setPiMultiplier(newPiMultiplier);
       setCurrentNumber(String(newPiMultiplier));
       setShowOperation(`${currentNumber} x π`);
-      // setFirstNumber(currentNumber);
       setOperation('')
-      console.log('fui executado tbm')
+
     } else if (expression === 'π') {
       const piNumber = calcPi()
       setPiValue(String(piNumber))
@@ -456,7 +389,7 @@ function App() {
       setCurrentNumber(String(newCurrent));
       setShowOperation(`${currentNumber} x π`);
       setFirstNumber(currentNumber);
-      console.log('E eu tbm')
+
     }
     else if (operators.includes(expression[expression.length - 1])) {
       // Se o último caractere da expressão for um operador, apenas atualiza a operação
@@ -466,10 +399,8 @@ function App() {
       handleEquation();
       setOperation(expression);
     }
-
     return false;
   };
-
 
 
   const handlePercentage = () => {
@@ -487,9 +418,6 @@ function App() {
       setCurrentNumber(currentNumber)
       const division = (Number(firstNumber) * Number(currentNumber) / 100)
       setCurrentNumber(String(division))
-      console.log(firstNumber)
-      console.log(currentNumber)
-      console.log("Porcentagem de pi executado")
     }
 
     else if (operation === '%' && firstNumber !== '0' && currentNumber !== '0') {
